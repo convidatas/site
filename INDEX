@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ConvitesVIP - Convites Digitais Interativos</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+     <title>ConvitesVIP - Convites Digitais Interativos</title>
     <meta name="description" content="Convites digitais interativos únicos para aniversários, casamentos, 15 anos e mais. Modelos prontos ou totalmente personalizados.">
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
@@ -299,5 +299,996 @@
     </div>
 
     <script src="script.js"></script>
+</body>
+</html>
+
+  <!-- ✅ CSS externo -->
+  <style>
+/* Custom Styles for ConvitesVIP */
+
+/* Gradients */
+.gradient-primary {
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+}
+
+.gradient-secondary {
+    background: linear-gradient(135deg, #f97316 0%, #eab308 100%);
+}
+
+/* Animations */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.animate-float {
+    animation: float 6s ease-in-out infinite;
+}
+
+/* Custom hover effects */
+.hover-scale:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease;
+}
+
+/* Category card styles */
+.category-card {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.category-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Product card styles */
+.product-card {
+    transition: all 0.3s ease;
+    background: white;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.product-card:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    transform: translateY(-2px);
+}
+
+.product-card img {
+    width: 100%;
+    height: 12rem;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+}
+
+.product-card:hover img {
+    transform: scale(1.05);
+}
+
+/* Button styles */
+.btn-whatsapp {
+    background-color: #25d366;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.btn-whatsapp:hover {
+    background-color: #1ea952;
+    transform: translateY(-1px);
+}
+
+.btn-filter {
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 2px solid #e5e7eb;
+    background: white;
+    color: #374151;
+}
+
+.btn-filter:hover {
+    border-color: #8b5cf6;
+    color: #8b5cf6;
+}
+
+.btn-filter.active {
+    background: #8b5cf6;
+    color: white;
+    border-color: #8b5cf6;
+}
+
+/* Loading states */
+.loading-skeleton {
+    background: linear-gradient(90deg, #f0f0f0 25%, #e0e0e0 50%, #f0f0f0 75%);
+    background-size: 200% 100%;
+    animation: loading 1.5s infinite;
+}
+
+@keyframes loading {
+    0% {
+        background-position: 200% 0;
+    }
+    100% {
+        background-position: -200% 0;
+    }
+}
+
+/* Category badges */
+.badge {
+    padding: 0.25rem 0.75rem;
+    border-radius: 9999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.badge-infantil {
+    background-color: #fef3c7;
+    color: #92400e;
+}
+
+.badge-15anos {
+    background-color: #fce7f3;
+    color: #be185d;
+}
+
+.badge-casamento {
+    background-color: #ede9fe;
+    color: #7c3aed;
+}
+
+.badge-savedate {
+    background-color: #ccfbf1;
+    color: #065f46;
+}
+
+.badge-chapanela {
+    background-color: #d1fae5;
+    color: #065f46;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    .text-4xl {
+        font-size: 2rem;
+    }
+    
+    .text-6xl {
+        font-size: 3rem;
+    }
+    
+    .grid-cols-2 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+}
+
+/* Smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Mobile menu */
+.mobile-menu {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+}
+
+.mobile-menu.active {
+    display: block;
+}
+
+.mobile-menu-content {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 80%;
+    max-width: 300px;
+    height: 100%;
+    background: white;
+    padding: 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+}
+
+.mobile-menu.active .mobile-menu-content {
+    transform: translateX(0);
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #8b5cf6;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #7c3aed;
+}
+
+/* Floating elements */
+.floating-whatsapp {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    z-index: 50;
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Price display */
+.price {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #8b5cf6;
+}
+
+/* Section spacing */
+section {
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+/* Card shadows */
+.card-shadow {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+.card-shadow-lg {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Text gradients */
+.text-gradient {
+    background: linear-gradient(135deg, #8b5cf6 0%, #ec4899 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* Button group */
+.btn-group {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+@media (max-width: 640px) {
+    .btn-group {
+        flex-direction: column;
+    }
+}
+
+/* Gallery hover effects */
+.gallery-item {
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Loading spinner */
+.spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid #8b5cf6;
+    border-radius: 50%;
+    width: 2rem;
+    height: 2rem;
+    animation: spin 1s linear infinite;
+    margin: 0 auto;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Success/Error messages */
+.alert {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+    font-weight: 500;
+}
+
+.alert-success {
+    background-color: #d1fae5;
+    color: #065f46;
+    border: 1px solid #10b981;
+}
+
+.alert-error {
+    background-color: #fee2e2;
+    color: #991b1b;
+    border: 1px solid #ef4444;
+}
+
+/* Form styles */
+.form-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 2px solid #e5e7eb;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.1);
+}
+
+/* Utility classes */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+.font-bold { font-weight: 700; }
+.font-semibold { font-weight: 600; }
+.font-medium { font-weight: 500; }
+.uppercase { text-transform: uppercase; }
+.lowercase { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+.tracking-wide { letter-spacing: 0.025em; }
+.leading-relaxed { line-height: 1.625; }
+
+/* Spacing utilities */
+.mb-1 { margin-bottom: 0.25rem; }
+.mb-2 { margin-bottom: 0.5rem; }
+.mb-3 { margin-bottom: 0.75rem; }
+.mb-4 { margin-bottom: 1rem; }
+.mb-6 { margin-bottom: 1.5rem; }
+.mb-8 { margin-bottom: 2rem; }
+.mb-12 { margin-bottom: 3rem; }
+
+.mt-1 { margin-top: 0.25rem; }
+.mt-2 { margin-top: 0.5rem; }
+.mt-3 { margin-top: 0.75rem; }
+.mt-4 { margin-top: 1rem; }
+.mt-6 { margin-top: 1.5rem; }
+.mt-8 { margin-top: 2rem; }
+.mt-12 { margin-top: 3rem; }
+
+.p-2 { padding: 0.5rem; }
+.p-4 { padding: 1rem; }
+.p-6 { padding: 1.5rem; }
+.p-8 { padding: 2rem; }
+
+.px-2 { padding-left: 0.5rem; padding-right: 0.5rem; }
+.px-4 { padding-left: 1rem; padding-right: 1rem; }
+.px-6 { padding-left: 1.5rem; padding-right: 1.5rem; }
+.px-8 { padding-left: 2rem; padding-right: 2rem; }
+
+.py-2 { padding-top: 0.5rem; padding-bottom: 0.5rem; }
+.py-4 { padding-top: 1rem; padding-bottom: 1rem; }
+.py-6 { padding-top: 1.5rem; padding-bottom: 1.5rem; }
+.py-8 { padding-top: 2rem; padding-bottom: 2rem; }
+  </style>
+</head>
+
+<body>
+  <header>
+  </header>
+
+  <!-- ✅ JavaScript separado em blocos -->
+  <script>
+// ConvitesVIP - JavaScript Functions
+
+// Data storage
+const categories = [
+    {
+        id: 1,
+        name: "Aniversários Infantis",
+        slug: "infantil",
+        icon: "🎂",
+        basePrice: "25.00",
+        customPrice: "120.00",
+        gradient: "from-yellow-400 to-orange-500"
+    },
+    {
+        id: 2,
+        name: "15 Anos",
+        slug: "15anos",
+        icon: "👑",
+        basePrice: "35.00",
+        customPrice: "150.00",
+        gradient: "from-pink-400 to-rose-500"
+    },
+    {
+        id: 3,
+        name: "Casamentos",
+        slug: "casamento",
+        icon: "💍",
+        basePrice: "45.00",
+        customPrice: "200.00",
+        gradient: "from-purple-400 to-indigo-500"
+    },
+    {
+        id: 4,
+        name: "Save the Date",
+        slug: "savedate",
+        icon: "📅",
+        basePrice: "30.00",
+        customPrice: "200.00",
+        gradient: "from-teal-400 to-cyan-500"
+    },
+    {
+        id: 5,
+        name: "Chá de Panela",
+        slug: "chapanela",
+        icon: "🍼",
+        basePrice: "25.00",
+        customPrice: "150.00",
+        gradient: "from-green-400 to-emerald-500"
+    }
+];
+
+const products = [
+    {
+        id: 1,
+        name: "Festa Colorida",
+        description: "Convite animado com personagens e cores vibrantes",
+        category: "infantil",
+        price: "25.00",
+        imageUrl: "https://images.unsplash.com/photo-1530103862676-de8c9debad1d?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+        isCustom: 0
+    },
+    {
+        id: 2,
+        name: "Super Heróis",
+        description: "Convite animado com heróis favoritos",
+        category: "infantil",
+        price: "25.00",
+        imageUrl: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+        isCustom: 0
+    },
+    {
+        id: 3,
+        name: "Rosa & Dourado",
+        description: "Convite elegante com tema princesa",
+        category: "15anos",
+        price: "35.00",
+        imageUrl: "https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+        isCustom: 0
+    },
+    {
+        id: 4,
+        name: "Roxo & Prata",
+        description: "Convite sofisticado e elegante",
+        category: "15anos",
+        price: "35.00",
+        imageUrl: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+        isCustom: 0
+    },
+    {
+        id: 5,
+        name: "Floral Clássico",
+        description: "Convite romântico com detalhes florais",
+        category: "casamento",
+        price: "45.00",
+        imageUrl: "https://images.unsplash.com/photo-1519741497674-611481863552?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+        isCustom: 0
+    },
+    {
+        id: 6,
+        name: "Moderno",
+        description: "Design minimalista e contemporâneo",
+        category: "casamento",
+        price: "45.00",
+        imageUrl: "https://images.unsplash.com/photo-1606800052052-a08af7148866?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+        isCustom: 0
+    },
+    {
+        id: 7,
+        name: "Romântico",
+        description: "Save the date delicado e elegante",
+        category: "savedate",
+        price: "30.00",
+        imageUrl: "https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+        isCustom: 0
+    },
+    {
+        id: 8,
+        name: "Delicado",
+        description: "Convite suave com tema baby",
+        category: "chapanela",
+        price: "25.00",
+        imageUrl: "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&h=300",
+        isCustom: 0
+    }
+];
+
+// Global variables
+let currentFilter = 'todos';
+const phoneNumber = '5563992465372'; // Change this to your WhatsApp number
+
+// Utility functions
+function scrollToSection(sectionId) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+    }
+}
+
+function generateWhatsAppUrl(product, phone = phoneNumber) {
+    const message = `Olá! Gostaria de comprar o convite: ${product.name} - R$ ${product.price}`;
+    return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+}
+
+function generateCustomWhatsAppUrl(category, phone = phoneNumber) {
+    const message = `Olá! Gostaria de solicitar um orçamento para convite personalizado da categoria: ${category}`;
+    return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+}
+
+function generateContactWhatsAppUrl(phone = phoneNumber) {
+    const message = "Olá! Gostaria de saber mais sobre os convites digitais";
+    return `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+}
+
+// WhatsApp functions
+function openWhatsApp() {
+    const url = generateContactWhatsAppUrl();
+    window.open(url, '_blank');
+}
+
+function openCustomWhatsApp() {
+    const url = generateCustomWhatsAppUrl("Personalizado");
+    window.open(url, '_blank');
+}
+
+function openProductWhatsApp(product) {
+    const url = generateWhatsAppUrl(product);
+    window.open(url, '_blank');
+}
+
+// Email function
+function sendEmail() {
+    window.location.href = "mailto:contato@convitesvip.com";
+}
+
+// Category functions
+function getCategoryColor(category) {
+    const colors = {
+        infantil: "badge-infantil",
+        "15anos": "badge-15anos",
+        casamento: "badge-casamento",
+        savedate: "badge-savedate",
+        chapanela: "badge-chapanela",
+    };
+    return colors[category] || "badge-infantil";
+}
+
+function getCategoryName(category) {
+    const names = {
+        infantil: "Infantil",
+        "15anos": "15 Anos",
+        casamento: "Casamento",
+        savedate: "Save the Date",
+        chapanela: "Chá de Panela",
+    };
+    return names[category] || category;
+}
+
+function getCategoryGradient(gradient) {
+    const gradients = {
+        "from-yellow-400 to-orange-500": "background: linear-gradient(135deg, #fbbf24 0%, #f97316 100%);",
+        "from-pink-400 to-rose-500": "background: linear-gradient(135deg, #f472b6 0%, #f43f5e 100%);",
+        "from-purple-400 to-indigo-500": "background: linear-gradient(135deg, #a78bfa 0%, #6366f1 100%);",
+        "from-teal-400 to-cyan-500": "background: linear-gradient(135deg, #2dd4bf 0%, #06b6d4 100%);",
+        "from-green-400 to-emerald-500": "background: linear-gradient(135deg, #4ade80 0%, #10b981 100%);"
+    };
+    return gradients[gradient] || gradients["from-purple-400 to-indigo-500"];
+}
+
+// Render functions
+function renderCategories() {
+    const categoriesGrid = document.getElementById('categories-grid');
+    if (!categoriesGrid) return;
+
+    categoriesGrid.innerHTML = '';
+
+    categories.forEach(category => {
+        const categoryElement = document.createElement('div');
+        categoryElement.className = 'category-card rounded-2xl p-6 text-center hover:scale-105 transition-transform cursor-pointer text-white';
+        categoryElement.style.cssText = getCategoryGradient(category.gradient);
+        categoryElement.onclick = () => filterByCategory(category.slug);
+
+        categoryElement.innerHTML = `
+            <div class="text-4xl mb-3">${category.icon}</div>
+            <h4 class="font-semibold text-white">${category.name}</h4>
+            <p class="text-white text-opacity-80 text-sm mt-1">A partir de R$ ${category.basePrice}</p>
+        `;
+
+        categoriesGrid.appendChild(categoryElement);
+    });
+}
+
+function renderFilterButtons() {
+    const filterButtons = document.getElementById('filter-buttons');
+    if (!filterButtons) return;
+
+    filterButtons.innerHTML = '';
+
+    // Add "Todos" button
+    const todosButton = document.createElement('button');
+    todosButton.className = `btn-filter ${currentFilter === 'todos' ? 'active' : ''}`;
+    todosButton.textContent = 'Todos';
+    todosButton.onclick = () => setFilter('todos');
+    filterButtons.appendChild(todosButton);
+
+    // Add category buttons
+    categories.forEach(category => {
+        const button = document.createElement('button');
+        button.className = `btn-filter ${currentFilter === category.slug ? 'active' : ''}`;
+        button.textContent = category.name;
+        button.onclick = () => setFilter(category.slug);
+        filterButtons.appendChild(button);
+    });
+}
+
+function renderProducts() {
+    const productsGrid = document.getElementById('products-grid');
+    if (!productsGrid) return;
+
+    productsGrid.innerHTML = '';
+
+    const filteredProducts = currentFilter === 'todos' 
+        ? products 
+        : products.filter(product => product.category === currentFilter);
+
+    if (filteredProducts.length === 0) {
+        productsGrid.innerHTML = `
+            <div class="col-span-full text-center py-12">
+                <p class="text-gray-500 text-lg">Nenhum produto encontrado nesta categoria.</p>
+            </div>
+        `;
+        return;
+    }
+
+    filteredProducts.forEach(product => {
+        const productElement = document.createElement('div');
+        productElement.className = 'product-card';
+
+        productElement.innerHTML = `
+            <img src="${product.imageUrl}" alt="${product.name}" class="w-full h-48 object-cover">
+            <div class="p-5">
+                <div class="flex items-center justify-between mb-2">
+                    <span class="badge ${getCategoryColor(product.category)}">
+                        ${getCategoryName(product.category)}
+                    </span>
+                    <span class="price">R$ ${product.price}</span>
+                </div>
+                <h4 class="font-semibold text-gray-900 mb-2">${product.name}</h4>
+                <p class="text-gray-600 text-sm mb-4">${product.description}</p>
+                <button 
+                    onclick="openProductWhatsApp(${JSON.stringify(product).replace(/"/g, '&quot;')})"
+                    class="btn-whatsapp w-full"
+                >
+                    <i class="fab fa-whatsapp"></i>
+                    Comprar via WhatsApp
+                </button>
+            </div>
+        `;
+
+        productsGrid.appendChild(productElement);
+    });
+}
+
+// Filter functions
+function setFilter(filter) {
+    currentFilter = filter;
+    renderFilterButtons();
+    renderProducts();
+}
+
+function filterByCategory(categorySlug) {
+    // Scroll to catalog section
+    scrollToSection('catalog');
+    
+    // Set filter after a short delay to allow scroll to complete
+    setTimeout(() => {
+        setFilter(categorySlug);
+    }, 500);
+}
+
+// Mobile menu functions
+function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu) {
+        mobileMenu.classList.toggle('active');
+    }
+}
+
+function closeMobileMenu() {
+    const mobileMenu = document.getElementById('mobile-menu');
+    if (mobileMenu) {
+        mobileMenu.classList.remove('active');
+    }
+}
+
+// Loading states
+function showLoading(elementId) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.innerHTML = `
+            <div class="flex justify-center items-center py-12">
+                <div class="spinner"></div>
+            </div>
+        `;
+    }
+}
+
+function hideLoading(elementId) {
+    const element = document.getElementById(elementId);
+    if (element) {
+        element.innerHTML = '';
+    }
+}
+
+// Analytics functions (optional)
+function trackEvent(eventName, properties = {}) {
+    // Add your analytics tracking code here
+    console.log('Event tracked:', eventName, properties);
+}
+
+function trackProductClick(product) {
+    trackEvent('product_click', {
+        product_id: product.id,
+        product_name: product.name,
+        category: product.category,
+        price: product.price
+    });
+}
+
+function trackWhatsAppClick(type, data = {}) {
+    trackEvent('whatsapp_click', {
+        type: type,
+        ...data
+    });
+}
+
+// Form validation functions
+function validateEmail(email) {
+    const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    return re.test(email);
+}
+
+function validatePhone(phone) {
+    const re = /^[\+]?[1-9][\d]{0,15}$/;
+    return re.test(phone.replace(/\s/g, ''));
+}
+
+// Local storage functions
+function saveToStorage(key, data) {
+    try {
+        localStorage.setItem(key, JSON.stringify(data));
+    } catch (error) {
+        console.error('Error saving to localStorage:', error);
+    }
+}
+
+function getFromStorage(key) {
+    try {
+        const data = localStorage.getItem(key);
+        return data ? JSON.parse(data) : null;
+    } catch (error) {
+        console.error('Error reading from localStorage:', error);
+        return null;
+    }
+}
+
+// Search functionality
+function searchProducts(query) {
+    if (!query.trim()) {
+        return products;
+    }
+    
+    const lowercaseQuery = query.toLowerCase();
+    return products.filter(product => 
+        product.name.toLowerCase().includes(lowercaseQuery) ||
+        product.description.toLowerCase().includes(lowercaseQuery) ||
+        getCategoryName(product.category).toLowerCase().includes(lowercaseQuery)
+    );
+}
+
+// Price formatting
+function formatPrice(price) {
+    return `R$ ${parseFloat(price).toFixed(2).replace('.', ',')}`;
+}
+
+// Image lazy loading
+function lazyLoadImages() {
+    const images = document.querySelectorAll('img[data-src]');
+    
+    if ('IntersectionObserver' in window) {
+        const imageObserver = new IntersectionObserver((entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const img = entry.target;
+                    img.src = img.dataset.src;
+                    img.classList.remove('loading');
+                    imageObserver.unobserve(img);
+                }
+            });
+        });
+
+        images.forEach(img => imageObserver.observe(img));
+    } else {
+        // Fallback for older browsers
+        images.forEach(img => {
+            img.src = img.dataset.src;
+        });
+    }
+}
+
+// Smooth scroll polyfill for older browsers
+function smoothScrollPolyfill() {
+    if (!('scrollBehavior' in document.documentElement.style)) {
+        const links = document.querySelectorAll('a[href^="#"]');
+        links.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    }
+}
+
+// Error handling
+function showError(message, elementId = null) {
+    const errorDiv = document.createElement('div');
+    errorDiv.className = 'alert alert-error';
+    errorDiv.textContent = message;
+    
+    if (elementId) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.appendChild(errorDiv);
+        }
+    } else {
+        document.body.appendChild(errorDiv);
+    }
+    
+    // Auto remove after 5 seconds
+    setTimeout(() => {
+        errorDiv.remove();
+    }, 5000);
+}
+
+function showSuccess(message, elementId = null) {
+    const successDiv = document.createElement('div');
+    successDiv.className = 'alert alert-success';
+    successDiv.textContent = message;
+    
+    if (elementId) {
+        const element = document.getElementById(elementId);
+        if (element) {
+            element.appendChild(successDiv);
+        }
+    } else {
+        document.body.appendChild(successDiv);
+    }
+    
+    // Auto remove after 3 seconds
+    setTimeout(() => {
+        successDiv.remove();
+    }, 3000);
+}
+
+// Initialization
+function init() {
+    // Render initial content
+    renderCategories();
+    renderFilterButtons();
+    renderProducts();
+    
+    // Initialize lazy loading
+    lazyLoadImages();
+    
+    // Initialize smooth scroll polyfill
+    smoothScrollPolyfill();
+    
+    // Track page view
+    trackEvent('page_view', {
+        page: 'home',
+        timestamp: new Date().toISOString()
+    });
+    
+    console.log('ConvitesVIP initialized successfully!');
+}
+
+// Event listeners
+document.addEventListener('DOMContentLoaded', init);
+
+// Handle clicks outside mobile menu
+document.addEventListener('click', function(event) {
+    const mobileMenu = document.getElementById('mobile-menu');
+    const mobileMenuButton = event.target.closest('[onclick="toggleMobileMenu()"]');
+    
+    if (mobileMenu && mobileMenu.classList.contains('active') && !mobileMenuButton) {
+        closeMobileMenu();
+    }
+});
+
+// Handle escape key for mobile menu
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeMobileMenu();
+    }
+});
+
+// Performance optimization: Debounce scroll events
+let scrollTimeout;
+window.addEventListener('scroll', function() {
+    if (scrollTimeout) {
+        clearTimeout(scrollTimeout);
+    }
+    
+    scrollTimeout = setTimeout(function() {
+        // Add any scroll-based functionality here
+        // For example, showing/hiding the floating WhatsApp button
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const floatingButton = document.querySelector('.floating-whatsapp');
+        
+        if (floatingButton) {
+            if (scrollTop > 200) {
+                floatingButton.style.opacity = '1';
+            } else {
+                floatingButton.style.opacity = '0.7';
+            }
+        }
+    }, 100);
+});
+
+// Expose functions globally for onclick handlers
+window.scrollToSection = scrollToSection;
+window.openWhatsApp = openWhatsApp;
+window.openCustomWhatsApp = openCustomWhatsApp;
+window.openProductWhatsApp = openProductWhatsApp;
+window.sendEmail = sendEmail;
+window.toggleMobileMenu = toggleMobileMenu;
+window.filterByCategory = filterByCategory;
+window.setFilter = setFilter;
+  </script>
 </body>
 </html>
